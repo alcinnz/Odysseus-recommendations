@@ -1,0 +1,90 @@
+<h3>Video Hosts</h3>
+  <ul>
+    <li><a href="https://vimeo.com/ondemand/browse/" title="Vimeo OnDemand">
+      <img src="https://f.vimeocdn.com/images_v6/favicon_vod.ico" height="32"
+          alt="Vimeo OnDemand" />
+    </a></li>
+    <li><a href="https://vodo.net/" title="VODO">
+      <img src="https://vodo.net/static/images/favicon.ico" alt="VODO"
+          />
+    </a></li>
+    <li><a href="https://archive.org/details/movies" title="Moving Image Archive">
+      <img src="https://archive.org/images/glogo.jpg" alt="Moving Image Archive"
+          />
+    </a></li>
+    <li><a href="https://goblinrefuge.com/mediagoblin/" title="Goblin Refuge">
+      <img src="https://goblinrefuge.com/mgoblin_static/images/filgren.ico"
+          alt="Goblin Refuge" />
+    </a></li>
+    <li><a href="https://vimeo.com/watch" title="Vimeo">
+      <img src="https://f.vimeocdn.com/images_v6/favicon.ico" alt="Vimeo"
+          />
+    </a></li>
+    <li><a href="http://lolflix.com/" title="LOL Flix">
+      <img src="http://lolflix.com/favicon-32x32.png"
+          alt="LOL Flix" />
+    </a></li>
+  </ul>
+<h3>Special Interest Stores</h3>
+  <ul>
+    <li><a href="https://www.gofasterstripe.com/cgi-bin/website.cgi?page=downloads"
+        title="GoFasterStripe">
+      <img src="https://www.gofasterstripe.com/images/toppanel1.gif"
+          alt="GoFasterStripe" />
+    </a></li>
+    <li><a href="http://wolfeondemand.com/" title="WolfeOnDemand">
+      <img src="http://wolfeondemand.com/uploads/websites/765/54f784a3dfd7f.png"
+          alt="WolfeOnDemand" />
+    </a></li>
+    <li><a href="http://www.highspots.com/c/Video-Downloads.html"
+        title="HighSpots">
+      <img src="http://www.highspots.com/mm5/images/header_logo.png"
+          alt="HighSpots" />
+    </a></li>
+    <li><a href="https://www.gog.com/movies##sort=bestselling&page=1"
+        title="GOG.com">
+      <img src="https://www.gog.com/favicon.ico?3"
+          alt="GOG.com" />
+    </a></li>
+  </ul>
+<h3>Individual Artists & Studios</h3>
+  <ul>
+    <li><a href="http://azizansari.com/shop/" title="Aziz Ansari">
+      <img src="http://azizansari.com/wp-content/uploads/2014/06/aziz-icon1.png"
+          alt="Aziz Ansari" />
+    </a></li>
+    <li><a href="http://www.comedydirect.com/" title="Comedy Central Standup">
+      <img src="https://dr56wvhu2c8zo.cloudfront.net/vhxdevelopment/assets/3db2d439-296b-46c9-9d3c-9a3e6cf7b3d1/cc-favicon-32x32.png"
+          alt="Comedy Central Standup" />
+    </a></li>
+    <li><a href="http://www.jimgaffigan.com/purchase/mr-universe"
+        title="Jim Gaffigan, Mr. Universe">
+      <img src="http://gaffigan.s3.amazonaws.com/assets/img/favicon/favicon-32x32.png?1495641058"
+          alt="Jim Gaffigan, Mr. Universe" />
+    </a></li>
+    <li><a href="https://louisck.net/" title="Louis CK">
+      <img src="https://s.louisck.net/assets/img/favicon/favicon-32x32.png?d1ee0a79"
+          alt="Louis CK" />
+    </a></li>
+    <li><a href="https://cloud.blender.org/open-projects"
+        title="Blender Open Movies">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Blender_logo_no_text.svg/734px-Blender_logo_no_text.svg.png"
+          alt="Blender Open Movies" />
+    </a></li>
+    <li><a href="http://kirbyferguson.com/" title="Kirby Ferguson">
+      <img src="https://i.vimeocdn.com/portrait/2166269_300x300"
+          alt="Kirby Ferguson" />
+    </a></li>
+    <li><a href="http://www.eyesteelfilm.com/" title="Eye Steel Film">
+      <img src="http://www.eyesteelfilm.com/favicon.ico"
+          alt="Eye Steel Film" />
+    </a></li>
+    <li><a href="https://www.rifftrax.com/" title="RiffTrax">
+      <img src="https://static.rifftrax.com/sites/all/themes/bootstraprifftrax/favicon.ico"
+          alt="RiffTrax" />
+    </a></li>
+    <li><a href="https://www.troma.com/" title="Troma">
+      <img src="https://www.troma.com/favicon.ico"
+          alt="Troma" />
+    </a></li>
+  </ul>

@@ -1,0 +1,30 @@
+  <ul>
+    <li><a href="https://indymedia.org/en/" title="IndyMedia">
+      <img src="https://indymedia.org/favicon.ico" alt="IndyMedia" />
+    </a></li>
+    <li><a href="https://en.wikinews.org/" title="Wikinews">
+      <img src="https://en.wikinews.org/favicon.ico" height=32" alt="Wikinews" />
+    </a></li>
+    <li><a href="https://www.theguardian.com/international" title="The Guardian">
+      <img src="https://www.theguardian.com/favicon.ico" height="32"
+          alt="The Guardian" />
+    </a></li>
+    <li><a href="http://bbc.com/news/" title="BBC News">
+      <img src="http://bbc.com/favicon.ico" alt="BBC News" />
+    </a></li>
+    <li><a href="https://www.nytimes.com/" title="New York Times">
+      <img src="https://www.nytimes.com/favicon.ico" height=32 alt="NY Times" />
+    </a></li>
+    <li><a href="http://talkingpointsmemo.com/" title="Talking Points Memo">
+      <img src="http://talkingpointsmemo.com/favicon.ico" height=32 alt=TPM />
+    </a></li>
+    <li><a href="https://torrentfreak.com/" title="Torrent Freak">
+      <img src="https://torrentfreak.com/wp-content/themes/torrentfreakredux/assets/img/icons/favicon.png"
+          alt="Torrent Freak" />
+    </a></li>
+    <li><a href="https://medium.com/dfrlab"
+        title="Atlantic Council - Digital Forensics Research Lab">
+      <img src="https://cdn-images-1.medium.com/max/94/1*kk6b8yzlNchjwaR1TBNwJg@2x.png"
+          alt="DFRL" />
+    </a></li>
+  </ul>

@@ -1,0 +1,80 @@
+<h3>Crowdfunding</h3>
+<ul>
+    <li><a href="http://artistshare.com/v4/" title="Artist Share">
+      <img src="http://artistshare.com/v4/Content/images/logo.png" height="32"
+        alt="Artist Share" />
+    </a></li>
+    <li><a href="https://www.pledgemusic.com/" title="Pledge Music">
+      <img src="https://www.pledgemusic.com/favicon.ico"
+          alt="Pledge Music" />
+    </a></li>
+</ul>
+<h3>Libraries</h3>
+<ul>
+    <li><a href="http://altermusique.org/" title="Altermusique">
+      <img src="http://static.altermusique.org/pics/icon.png?2009" height="32"
+          alt="Altermusiue" />
+    </a></li>
+    <li><a href="https://archive.org/details/audio"
+        title="Audio and Music Archive">
+      <img src="https://archive.org/images/glogo.jpg" height="32"
+          alt="Audio and Music Archive" />
+    </a></li>
+    <li><a href="http://ccmixter.org/" title="ccmixter">
+      <img src="http://ccmixter.org/favicon.ico" alt="ccmixter" />
+    </a></li>
+    <li><a href="https://www.cdbaby.com/" title="CDBaby">
+      <img src="https://www.cdbaby.com/favicon.ico" alt="CDBaby" />
+    </a></li>
+    <li><a href="https://www.jamendo.com/start" title="Jamendo">
+      <img src="https://cdn-www.jamendo.com/Client/assets/toolkit/images/icon/favicon-32x32.1511522248000.png"
+          alt="Jamendo" />
+    </a></li>
+    <li><a href="http://www.kahvi.org/" title="Khavi">
+      <img src="http://www.kahvi.org/favicon.ico" alt="Khavi" />
+    </a></li>
+    <li><a href="https://libre.fm/" title="Libre.fm">
+      <img src="https://libre.fm/favicon.ico" alt="Libre.fm" />
+    </a></li>
+    <li><a href="http://sonicsquirrel.net/" title="Sonic Squirrel">
+      <img src="http://sonicsquirrel.net/favicon.ico" height="32"
+          alt="Sonic Squirrel" />
+    </a></li>
+    <li><a href="https://soundcloud.com/" title="Sound Cloud">
+      <img src="https://soundcloud.com/favicon.ico" height="32"
+          alt="Sound Cloud" />
+    </a></li>
+</ul>
+<h3>Individual Artists</h3>
+  <ul>
+    <li><a href="http://www.thefump.com/" title="The Funny Music Project">
+      <img src="http://www.thefump.com/images/logo.gif" height="32"
+          alt="The Funny Music Project" />
+    </a></li>
+    <li><a href="http://saulwilliams.com/projects/niggy-tardust/"
+        title="Saul William's Niggy Tardist">
+      <img src="http://www.saulwilliams.com/wp-content/uploads/2011/05/niggy_tardust_cat_580.jpg"
+          alt="Saul William's Niggy Tardest" />
+    </a></li>
+    <li><a href="https://www.theymightbegiants.com/"
+        title="They Might Be Giants">
+      <img src="https://www.theymightbegiants.com/favicon.ico" height="32"
+          alt="They Might Be Giants" />
+    </a></li>
+    <li><a href="https://www.jonathancoulton.com/" title="Jonathan Coulton">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Jonathan_Coulton_cropped.jpg"
+          alt="Jonathon Coulton" />
+    </a></li>
+    <li><a href="http://www.nin.com/" title="Nine Inch Nails">
+      <img src="http://www.vectorsland.com/imgd/s81715-nine-inch-nails-logo-55641.png"
+          alt="Nine Inch Niles" />
+    </a></li>
+    <li><a href="http://www.voluntocracy.org/Music/" title="Voluntary Music">
+      <img src="http://www.voluntocracy.org/Music/notes.png"
+          alt="Voluntary Music" />
+    </a></li>
+    <li><a href="http://finecutbodies.com/?p=music" title="Kevin Chi">
+      <img src="http://finecutbodies.com/pics/icons/favicon.ico" height="32"
+          alt="Kevin Chi" />
+    </a></li>
+  </ul>

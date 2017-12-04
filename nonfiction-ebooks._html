@@ -1,0 +1,41 @@
+  <ul>
+    <li><a href="https://en.wikibooks.org/wiki/Main_Page" title="WikiBooks">
+      <img src="https://en.wikibooks.org/static/favicon/wikibooks.ico"
+          alt="WikiBooks" />
+    </a></li>
+    <li><a href="https://en.wikisource.org/wiki/Main_Page" title="WikiSource">
+      <img src="https://en.wikisource.org/static/favicon/wikisource.ico"
+          alt="WikiSource" />
+    </a></li>
+    <li><a href="https://smart.study/blog/1000-open-textbooks-and-learning-resources-for-all-subjects/"
+        title="Smart Study">
+      <img src="https://smart.study/favicon/favicon-32x32.png"
+          alt="Smart Study" />
+    </a></li>
+    <li><a href="http://anarchism.pageabode.com/afaq/index.html"
+        title="The Anarchist FAQ">
+      <img src="http://anarchism.pageabode.com/sites/anarchism.pageabode.com/files/garland_favicon.gif"
+          alt="The Anarchist FAQ" />
+    </a></li>
+    <li><a href="http://www.lessig.org/books/" title="Lawrence Lessig's books">
+      <img src="http://www.lessig.org/wp-content/themes/Free-as-in-Bird/images/favicon.png"
+          alt="Lawrence Lessig's books" />
+    </a></li>
+    <li><a href="http://www.withouthotair.com/download.html"
+        title="Sustainable Energy - Without the Hot Air by David MacKay">
+      <img src="http://www.withouthotair.com/favicon.ico" height="32"
+          alt="Sustainable Energy - Without the Hot Air by David MacKay" />
+    </a></li>
+  </ul>
+  <h3>Magazines</h3>
+  <ul>
+    <li><a href="https://www.2600.com/" title="2600: The Hacker Quarterly">
+      <img src="https://www.2600.com/favicon.ico" height="32"
+          alt="2600: The Hacker Quarterly" />
+    </a></li>
+    <li><a href="http://psychclassics.yorku.ca/"
+        title="Classics in the History of Psychology">
+      <img src="http://psychclassics.yorku.ca/faces2nr.gif"
+          alt="Classics in the History of Psychology" />
+    </a></li>
+  </ul>

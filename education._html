@@ -1,0 +1,67 @@
+<h6>Diverse Subjects</h6>
+  <ul>
+    <li><a href="http://academicearth.org/" title="Academic Earth">
+      <img src="http://academicearth.org/wp-content/themes/aeorg-theme/assets/img/favicon.ico"
+          alt="Academic Earth" />
+    </a></li>
+    <li><a href="https://www.ck12.org/" title="CK-12">
+      <img src="https://img1.ck12.org/media/build-20171128190054/images/ck12-logo-livetile-57x57.png"
+          alt="CK-12" />
+    </a></li>
+    <li><a href="https://www.coursera.org/" title="Coursera">
+      <img src="https://d3njjcbhbojbot.cloudfront.net/web/images/favicons/apple-touch-icon-57x57.png"
+          alt="Coursera" />
+    </a></li>
+    <li><a href="https://www.edx.org/" title="edX">
+      <img src="https://www.edx.org/sites/default/files/theme/edx-logo-header.png"
+          alt="edX" />
+    </a></li>
+    <li><a href="https://www.extension.harvard.edu/open-learning-initiative"
+        title="Harvard Open Courses">
+      <img src="https://www.extension.harvard.edu/sites/extension.harvard.edu/themes/extension/favicon.ico"
+          alt="Harvard Open Courses" />
+    </a></li>
+    <li><a href="https://www.khanacademy.org/" title="Khan Academy">
+      <img src="https://cdn.kastatic.org/images/apple-touch-icon-57x57-precomposed.png"
+          alt="Khan Academy" />
+    </a></li>
+    <li><a href="http://oli.cmu.edu/"
+        title="CMU Open Learning Initiative">
+      <img src="https://edspace.american.edu/open/wp-content/uploads/sites/43/2016/03/image-cmu-oil.jpg"
+          alt="CMU Open Learning Initiative" />
+    </a></li>
+    <li><a href="http://oyc.yale.edu/" title="Open Yale Courses">
+      <img src="http://oyc.yale.edu/sites/all/themes/yalenew_base/images/favicon.ico"
+          alt="Open Yale Courses" />
+    </a></li>
+    <li><a href="https://ed.ted.com/" title="TED-Ed">
+      <img src="https://ed.ted.com/favicon.ico"
+          alt="TED-Ed" />
+    </a></li>
+    <li><a href="https://www.udacity.com/" title="Udacity">
+      <img src="https://d125fmws0bore1.cloudfront.net/assets/favicon-3867f43151ecbff486335ae6a96d17d91d6169d20888131b4681d15b65e1425b.ico"
+          alt="Udacity" />
+    </a></li>
+    <li><a href="https://www.uopeople.edu/" title="University of the People">
+      <img src="https://3w1fdw3g237j15p5421zov1f-wpengine.netdna-ssl.com/wp-content/themes/uopeople/assets/favicons/favicon-32x32.png"
+          alt="University of the People" />
+    </a></li>
+    <li><a href="https://www.wikiversity.org/" title="Wikiversity">
+      <img src="https://www.wikiversity.org/favicon.ico"
+          alt="Wikiversity" />
+    </a></li>
+  </ul>
+<h6>Specific Subjects</h6>
+  <ul>
+    <li><a href="https://www.xiph.org/video/" title="Xiph.org's Video Lessons">
+      <img src="https://www.xiph.org/images/logos/xiph.ico"
+          alt="Xiph.org's Video Lessons" />
+    </a></li>
+    <li><a href="http://sequart.org/store/" title="Sequart">
+      <img src="http://images.sequart.org/favicon.ico" alt="Sequart" />
+    </a></li>
+    <li><a href="https://media.libreplanet.org/" title="LibrePlanet MediaGoblin">
+      <img src="https://static.fsf.org/nosvn/libreplanet/2015/graphical_assets/lp-logo-for-gmg.svg"
+          alt="LibrePlanet MediaGoblin" />
+    </a></li>
+  </ul>
