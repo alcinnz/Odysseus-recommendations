@@ -1,5 +1,5 @@
 # Odysseus-recommendations
-A place to start your browsing
+A place to start your browsing. Feel free fork this project to add links to the page snippets, or suggest those links in the issues for us to mess with the code. 
 
 ## Help Wanted!
 To move beyond this MVP, I need help from people with skillsets I struggle with. Specifically I need:
