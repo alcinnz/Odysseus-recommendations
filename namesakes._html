@@ -8,3 +8,8 @@
   <li>elementary OS 0.2 <a href="http://www.talesbeyondbelief.com/roman-gods/luna.htm">Luna</a></li>
   <li>elementary OS 0.1 <a href="https://www.windows2universe.org/?page=/mythology/gods_n_goddesses/Jupiter/Jupiter_king.html">Jupiter</a></li>
 </ul>
+
+<style>
+  main ul {display: list;}
+  main ul li {display: list-item;}
+</style>
