@@ -3,13 +3,12 @@
   <li><a href="http://www.in2greece.com/english/historymyth/mythology/names/odysseus.htm">Odysseus</a></li>
   <li>elementary OS 0.4 <a href="http://mythology.wikia.com/wiki/Loki">Loki</a></li>
   <li>elementary OS 0.3 <a href="https://norse-mythology.org/gods-and-creatures/the-vanir-gods-and-goddesses/freya/">Freya</a>
-    (originally going to be called <a href="http://www.phoenician.org/isis_and_osiris_legend.htm">Isis</a> before political events
-    made that name unacceptable)</li>
+    (Original but politically unacceptable codename: <a href="http://www.phoenician.org/isis_and_osiris_legend.htm">Isis</a>)</li>
   <li>elementary OS 0.2 <a href="http://www.talesbeyondbelief.com/roman-gods/luna.htm">Luna</a></li>
   <li>elementary OS 0.1 <a href="https://www.windows2universe.org/?page=/mythology/gods_n_goddesses/Jupiter/Jupiter_king.html">Jupiter</a></li>
 </ul>
 
 <style>
   main ul {display: list;}
-  main ul li {display: list-item;}
+  main ul li {display: list-item; text-align: center; margin: 0 auto;}
 </style>
