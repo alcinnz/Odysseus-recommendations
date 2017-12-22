@@ -1,19 +1,6 @@
 # Odysseus-recommendations
 A place to start your browsing. Feel free fork this project to add links to the page snippets, or suggest those links in the issues for us to mess with the code. 
 
-## Help Wanted!
-To move beyond this MVP, I need help from people with skillsets I struggle with. Specifically I need:
-
-* A Librarian
-* & a Visual Designer (I'm more of an Interactive Designer)
-
-If you're interested in helping with one or both of these skillsets, please contact alcinnz@lavabit.com. 
-
-### Other Tasks
-
-1. Build equivalent sites for other locales than English speakers.
-2. Upstream the corrections I made against the [Guide to DRM-Free Living](https://www.defectivebydesign.org/guide), from which almost all the entertainment links are taken. 
-
 ## Why is This Important?
 The elementary OS HIG [states](https://elementary.io/docs/human-interface-guidelines#first-launch-experience) that if an app has no content to show the user, it should provide them with actions to take in order to populate it with some content. 
 
