@@ -19,7 +19,7 @@
     in Odysseus's topsites display.
 
     Compile this with valac --pkg webkit2gtk-4.0*/
-async void take_screenshot(string url) {
+async void take_screenshot(string url) throws Error {
     var web = new WebKit.WebView();
     var win = new Gtk.OffscreenWindow();
     web.set_size_request(512, 512);
@@ -32,21 +32,26 @@ async void take_screenshot(string url) {
     });
     web.load_uri(url);
     yield;
-    stdout.printf("%s\n", web.title);
 
     var shot = yield web.get_snapshot(WebKit.SnapshotRegion.VISIBLE,
             WebKit.SnapshotOptions.NONE, null);
-    shot.write_to_png("out.png");
+    uint8[] png;
+    Gdk.pixbuf_get_from_surface(shot, 0, 0, 512, 512).save_to_buffer(out png, "png");
+    var encoded = Base64.encode(png);
+    stdout.printf("%s\n", encoded);
 }
 
 static int main(string[] args) {
     Gtk.init(ref args);
+    int ret = 0;
     var loop = new MainLoop();
 
     take_screenshot.begin(args[1], (obj, res) => {
-        take_screenshot.end(res);
+        try {
+            take_screenshot.end(res);
+        } catch (Error err) {ret = -1;}
         loop.quit();
     });
     loop.run();
-    return 0;
+    return ret;
 }
