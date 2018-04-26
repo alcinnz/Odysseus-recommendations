@@ -19,7 +19,7 @@
     in Odysseus's topsites display.
 
     Compile this with valac --pkg webkit2gtk-4.0*/
-async void take_screenshot(string url) throws Error {
+async string take_screenshot(string url) throws Error {
     var web = new WebKit.WebView();
     var win = new Gtk.OffscreenWindow();
     web.set_size_request(512, 512);
@@ -39,6 +39,35 @@ async void take_screenshot(string url) throws Error {
     Gdk.pixbuf_get_from_surface(shot, 0, 0, 512, 512).save_to_buffer(out png, "png");
     var encoded = Base64.encode(png);
     stdout.printf("%s\n", encoded);
+
+    return encoded;
+}
+
+async void screenshot_locale(string path) throws Error {
+    var file = new DataInputStream(yield File.new_for_path(path).read_async());
+
+    for (var line = yield file.read_line_async(); line != null;
+            line = yield file.read_line_async()) {
+        line = line.strip();
+        if (line[0] == '#') continue;
+
+        var links = line.split_set(" \t");
+        // Throw out empty links
+        var nonempty_links = new string[links.length];
+        var nonempty_length = 0;
+        for (var i = 0; i < links.length; i++) {
+            if (links[i] == "") continue;
+            nonempty_links[nonempty_length] = links[i];
+            nonempty_length++;
+        }
+        links = nonempty_links[0:nonempty_length];
+
+        foreach (var link in links) {
+            stdout.printf("%f %s\n", 1.0/links.length, link);
+        }
+    }
+
+    file.close();
 }
 
 static int main(string[] args) {
@@ -46,9 +75,9 @@ static int main(string[] args) {
     int ret = 0;
     var loop = new MainLoop();
 
-    take_screenshot.begin(args[1], (obj, res) => {
+    screenshot_locale.begin(args[1], (obj, res) => {
         try {
-            take_screenshot.end(res);
+            screenshot_locale.end(res);
         } catch (Error err) {ret = -1;}
         loop.quit();
     });
