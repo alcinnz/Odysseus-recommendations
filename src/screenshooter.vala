@@ -70,8 +70,12 @@ async void screenshot_locale(File path) throws Error {
         links = nonempty_links[0:nonempty_length];
 
         foreach (var link in links) {
-            stdout.printf("%f %s %i\n", 1.0/links.length, link,
-                        (yield screenshot_link(renderer, link)).length);
+            try {
+                stdout.printf("%f %s %i\n", 1.0/links.length, link,
+                            (yield screenshot_link(renderer, link)).length);
+            } catch (Error err) {
+                stderr.printf("Failed to screenshot page: %s\n", err.message);
+            }
         }
     }
 
@@ -83,7 +87,12 @@ async void process_locales() throws Error {
 
     var files = dir.enumerate_children("standard::*", 0);
     for (var info = files.next_file(); info != null; info = files.next_file()) {
-        yield screenshot_locale(dir.get_child(info.get_name()));
+        if (info.get_name().has_suffix("~")) continue;
+        try {
+            yield screenshot_locale(dir.get_child(info.get_name()));
+        } catch (Error err) {
+            stderr.printf("syntax error in %s: %s\n", info.get_name(), err.message);
+        }
     }
 }
 
