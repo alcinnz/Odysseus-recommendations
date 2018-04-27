@@ -29,6 +29,8 @@ WebKit.WebView construct_renderer() {
 
     return web;
 }
+
+errordomain ScreenshotError {FAILED}
 async string screenshot_link(WebKit.WebView web, string url) throws Error {
     var hook = web.load_changed.connect((evt) => {
         if (evt == WebKit.LoadEvent.FINISHED) screenshot_link.callback();
@@ -39,6 +41,7 @@ async string screenshot_link(WebKit.WebView web, string url) throws Error {
 
     var shot = yield web.get_snapshot(WebKit.SnapshotRegion.VISIBLE,
             WebKit.SnapshotOptions.NONE, null);
+    if (shot == null) throw new ScreenshotError.FAILED("WebView.get_snapshot");
     uint8[] png;
     Gdk.pixbuf_get_from_surface(shot, 0, 0, 512, 512).save_to_buffer(out png, "png");
     var encoded = Base64.encode(png);
@@ -46,8 +49,8 @@ async string screenshot_link(WebKit.WebView web, string url) throws Error {
     return encoded;
 }
 
-async void screenshot_locale(string path) throws Error {
-    var file = new DataInputStream(yield File.new_for_path(path).read_async());
+async void screenshot_locale(File path) throws Error {
+    var file = new DataInputStream(yield path.read_async());
     var renderer = construct_renderer();
 
     for (var line = yield file.read_line_async(); line != null;
@@ -75,14 +78,30 @@ async void screenshot_locale(string path) throws Error {
     file.close();
 }
 
+async void process_locales() throws Error {
+    var dir = get_repo_root().get_child("links");
+
+    var files = dir.enumerate_children("standard::*", 0);
+    for (var info = files.next_file(); info != null; info = files.next_file()) {
+        yield screenshot_locale(dir.get_child(info.get_name()));
+    }
+}
+
+File get_repo_root() {
+    var ret = File.new_for_path(".");
+    while (!ret.get_child(".git").query_exists())
+        ret = ret.get_parent();
+    return ret;
+}
+
 static int main(string[] args) {
     Gtk.init(ref args);
     int ret = 0;
     var loop = new MainLoop();
 
-    screenshot_locale.begin(args[1], (obj, res) => {
+    process_locales.begin((obj, res) => {
         try {
-            screenshot_locale.end(res);
+            process_locales.end(res);
         } catch (Error err) {ret = -1;}
         loop.quit();
     });
