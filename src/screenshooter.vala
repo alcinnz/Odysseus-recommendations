@@ -19,7 +19,7 @@
     in Odysseus's topsites display.
 
     Compile this with valac --pkg webkit2gtk-4.0*/
-async string take_screenshot(string url) throws Error {
+WebKit.WebView construct_renderer() {
     var web = new WebKit.WebView();
     var win = new Gtk.OffscreenWindow();
     web.set_size_request(512, 512);
@@ -27,29 +27,33 @@ async string take_screenshot(string url) throws Error {
     win.add(web);
     win.show_all();
 
-    web.load_changed.connect((evt) => {
-        if (evt == WebKit.LoadEvent.FINISHED) take_screenshot.callback();
+    return web;
+}
+async string screenshot_link(WebKit.WebView web, string url) throws Error {
+    var hook = web.load_changed.connect((evt) => {
+        if (evt == WebKit.LoadEvent.FINISHED) screenshot_link.callback();
     });
     web.load_uri(url);
     yield;
+    web.disconnect(hook);
 
     var shot = yield web.get_snapshot(WebKit.SnapshotRegion.VISIBLE,
             WebKit.SnapshotOptions.NONE, null);
     uint8[] png;
     Gdk.pixbuf_get_from_surface(shot, 0, 0, 512, 512).save_to_buffer(out png, "png");
     var encoded = Base64.encode(png);
-    stdout.printf("%s\n", encoded);
 
     return encoded;
 }
 
 async void screenshot_locale(string path) throws Error {
     var file = new DataInputStream(yield File.new_for_path(path).read_async());
+    var renderer = construct_renderer();
 
     for (var line = yield file.read_line_async(); line != null;
             line = yield file.read_line_async()) {
         line = line.strip();
-        if (line[0] == '#') continue;
+        if (line.length == 0 || line[0] == '#') continue;
 
         var links = line.split_set(" \t");
         // Throw out empty links
@@ -63,7 +67,8 @@ async void screenshot_locale(string path) throws Error {
         links = nonempty_links[0:nonempty_length];
 
         foreach (var link in links) {
-            stdout.printf("%f %s\n", 1.0/links.length, link);
+            stdout.printf("%f %s %i\n", 1.0/links.length, link,
+                        (yield screenshot_link(renderer, link)).length);
         }
     }
 
