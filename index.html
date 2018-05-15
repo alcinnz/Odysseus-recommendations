@@ -5,125 +5,30 @@
   <style>
     body {
       font: medium sans-serif;
-      color: #333;
-      margin: 0;
-      display: grid;
-      grid-template-areas: "header header"
-                            "sidebar main";
-      grid-template-rows: auto 1fr;
-      grid-template-columns: auto 1fr;
-      height: 100vh;
-    }
-    header {
-      border-bottom: thin solid #aaa;
-      padding: 3px 20px;
-      grid-area: header;
-    }
-    header h1 {
-      float: left;
-    }
-    header p {
-      text-align: right;
-    }
-
-    aside {
-      padding: 0;
-      background: #ccc;
-      border-right: 2px solid #aaa;
-      float: left;
-      color: #444;
-      grid-area: sidebar;
-      overflow-y: auto;
-    }
-    aside img {margin: 0 2px;}
-    aside dl {margin: 0; padding: 0;}
-    aside dt {
-      margin: 0;
-      padding: 7px;
-      font-weight: bold;
-    }
-    aside dd {
-      margin: 0;
-      padding: 7px;
-      padding-left: 15px;
-    }
-    aside dl > .active {background: #eee; cursor: default;}
-    aside a {text-decoration: none;}
-
-    main {
-      grid-area: main;
       text-align: center;
-      align-self: center;
-      justify-self: center;
-/*      width: calc((50px + 2*30px)*(4 + 1)); */
-    }
-    main ol li {text-align: left;}
-    main ul {display: block;}
-    main ul li {display: inline;}
-    main ul a {text-decoration: none;}
-    main img {padding: 20px; height: 45px; width: 45px;}
-    main img:hover {background: gray;}
-    main h3 {font-size: 1em; margin: 0; padding: 0;}
-
-    footer {
-      position: fixed;
-      bottom: 5px; right: 3px;
     }
   </style>
   <script src="zepto.js"></script>
   <script>
-    $(function() {
-      $('aside [data-href]').mouseenter(function() {
-        $('.active').removeClass('active')
-        $(this).addClass('active')
-        $('main').load($(this).data('href'))
-      })
-      $('main').load("namesakes._html")
-    })
+    $.get("tsv/en.tsv", (text) => $(() => {
+        var tsv = text.split("\n").map((tuple) => tuple.split("\t"))
+            .filter((tuple) => tuple.length > 1)
+        tsv.map((tuple) => tuple.push(Math.random() * tuple[0]))
+        tsv.sort((a, b) => a[3] - b[3])
+        $('ul').empty()
+        var tuple
+        for (tuple of tsv)
+          $('ul').append($('<li>').append(
+            $('<a>').attr('href', tuple[1]).text(tuple[1])
+          ))
+
+        console.log(tuple)
+    }))
   </script>
 </head>
 <body>
-  <header>
-    <h1>Welcome to Odysseus!</h1>
-    <p>Here's some cool sites.</p>
-    <p>Odysseus can <a href="https://github.com/alcinnz/Odysseus-support/wiki/help-wanted">use you</a>!
-      elementary OS can <a href="https://elementary.io/get-involved">use you</a>!</p>
-    <div style="clear: both;"></div>
-  </header>
-  <aside>
-    <dl>
-      <dt data-href="movies._html">Movies</dt>
-      <dt data-href="music._html">Music</dt>
-      <dd data-href="musicstores._html">Stores</dd>
-      <dt data-href="ebooks._html">eBooks</dt>
-      <dd data-href="nonfiction-ebooks._html">Nonfiction</dd>
-      <dd data-href="comics._html">Comics</dd>
-      <dd data-href="ebookstores._html">Stores</dd>
-      <dd data-href="libraries._html">Libraries</dd>
-      <dt data-href="audiobooks._html">Audio Books</dt>
-      <dd data-href="nonfiction-audiobooks._html">Nonfiction</dd>
-      <dt>
-        <a href="http://www.miroguide.com/" title="Miro's Guide">Podcasts</a>
-      </dt>
-    </dl>
-    <hr />
-    <dl>
-      <dt data-href="news._html">News</dt>
-      <dt data-href="system._html">System</dt>
-      <dt data-href="services._html">Services</dt>
-      <dt data-href="education._html">Education</dt>
-      <dd data-href="textbooks._html">Textbooks</dd>
-    </dl>
-    <hr />
-    <dl>
-      <dt data-href="namesakes._html">Namesakes</dt>
-    </dl>
-  </aside>
-  <main>
-  </main>
-  <footer>
-    Many links passed on in good faith from <a href="https://defectivebydesign.org/guide/">Defective By Design</a> |
-    <a href="https://alcinnz.github.io/Odysseus-recommendations/" title="Contribute on GitHub">Suggest link or correction</a>
-  </footer>
+  <h1>Here's some cool links for you to check out!</h1>
+
+  <ul><li>Loading...</li></ul>
 </body>
 </html>
