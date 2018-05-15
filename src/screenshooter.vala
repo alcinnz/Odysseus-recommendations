@@ -18,7 +18,47 @@
     links both on Odysseus's Recommendations site and
     in Odysseus's topsites display.
 
-    Compile this with valac --pkg webkit2gtk-4.0*/
+    Compile this with valac --pkg webkit2gtk-4.0 --pkg sqlite3 */
+errordomain DBError {CREATE, STATEMENT}
+class Output {
+    DataOutputStream file;
+    Sqlite.Database db;
+    Sqlite.Statement qinsert;
+    public Output(File root, string lang) throws Error {
+        var tsv_dir = root.get_child("tsv");
+        if (!tsv_dir.query_exists()) tsv_dir.make_directory();
+        var file = root.get_child("tsv").get_child(lang + ".tsv");
+        this.file = new DataOutputStream(file.create(
+                FileCreateFlags.REPLACE_DESTINATION | FileCreateFlags.PRIVATE));
+
+        var db_dir = root.get_child("db");
+        if (!db_dir.query_exists()) db_dir.make_directory();
+        var db_file = db_dir.get_child(lang + ".sqlite");
+        var err = Sqlite.Database.open(db_file.get_path(), out db);
+        if (err != Sqlite.OK) throw new DBError.CREATE("%i".printf(err));
+        err = db.exec("""CREATE TABLE IF NOT EXISTS recommendations (uri PRIMARY KEY, screenshot, rank);""");
+        if (err != Sqlite.OK) throw new DBError.STATEMENT(db.errmsg());
+        err = db.exec("""DELETE FROM recommendations;""");
+        if (err != Sqlite.OK) throw new DBError.STATEMENT(db.errmsg());
+
+        err = db.prepare_v2("""INSERT INTO recommendations VALUES (?, ?, ?);""",
+                -1, out qinsert);
+        if (err != Sqlite.OK) throw new DBError.STATEMENT(db.errmsg());
+    }
+
+    public void write(double Pr, string uri, string screenshot) throws IOError {
+        file.put_string("%f\t%s\t%s\n".printf(Pr, uri, screenshot));
+        stdout.printf(".");
+        stdout.flush();
+
+        qinsert.bind_text(1, uri);
+        qinsert.bind_text(2, screenshot);
+        qinsert.bind_double(3, Pr);
+        qinsert.step();
+    }
+}
+
+/* Render screenshots */
 WebKit.WebView construct_renderer() {
     var web = new WebKit.WebView();
     var win = new Gtk.OffscreenWindow();
@@ -49,7 +89,8 @@ async string screenshot_link(WebKit.WebView web, string url) throws Error {
     return encoded;
 }
 
-async void screenshot_locale(File path) throws Error {
+/* Find links to screenshot */
+async void screenshot_locale(Output output, File path) throws Error {
     var file = new DataInputStream(yield path.read_async());
     var renderer = construct_renderer();
 
@@ -71,8 +112,8 @@ async void screenshot_locale(File path) throws Error {
 
         foreach (var link in links) {
             try {
-                stdout.printf("%f %s %i\n", 1.0/links.length, link,
-                            (yield screenshot_link(renderer, link)).length);
+                output.write(1.0/links.length, link,
+                        yield screenshot_link(renderer, link));
             } catch (Error err) {
                 stderr.printf("Failed to screenshot page: %s\n", err.message);
             }
@@ -83,13 +124,15 @@ async void screenshot_locale(File path) throws Error {
 }
 
 async void process_locales() throws Error {
+    var repo = get_repo_root();
     var dir = get_repo_root().get_child("links");
 
     var files = dir.enumerate_children("standard::*", 0);
     for (var info = files.next_file(); info != null; info = files.next_file()) {
         if (info.get_name().has_suffix("~")) continue;
         try {
-            yield screenshot_locale(dir.get_child(info.get_name()));
+            var output = new Output(repo, info.get_name());
+            yield screenshot_locale(output, dir.get_child(info.get_name()));
         } catch (Error err) {
             stderr.printf("syntax error in %s: %s\n", info.get_name(), err.message);
         }
@@ -103,6 +146,7 @@ File get_repo_root() {
     return ret;
 }
 
+/* Entry point */
 static int main(string[] args) {
     Gtk.init(ref args);
     int ret = 0;
@@ -115,5 +159,6 @@ static int main(string[] args) {
         loop.quit();
     });
     loop.run();
+    stdout.printf("\n");
     return ret;
 }
