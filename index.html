@@ -13,7 +13,8 @@
   </style>
   <script src="zepto.js"></script>
   <script>
-    $.get("tsv/en.tsv", (text) => $(() => {
+    $.get("tsv/" + navigator.language.split("-")[0] + ".tsv",
+            (text) => $(() => {
         var tsv = text.split("\n").map((tuple) => tuple.split("\t"))
             .filter((tuple) => tuple.length > 1)
         tsv.map((tuple) => tuple.push(Math.random() * tuple[0]))
