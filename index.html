@@ -19,7 +19,9 @@
         var tuple
         for (tuple of tsv)
           $('ul').append($('<li>').append(
-            $('<a>').attr('href', tuple[1]).text(tuple[1])
+            $('<a>').attr('href', tuple[1]).append(
+              $('<img>').attr('src', "data:image/png;base64," + tuple[2])
+            )
           ))
 
         console.log(tuple)
