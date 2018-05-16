@@ -99,6 +99,16 @@ async string screenshot_link(WebKit.WebView web, string url) throws Error {
     return encoded;
 }
 
+// Tries calling screenshot_link 3 times
+async string try_screenshot_link(WebKit.WebView web, string url)
+        throws Error {
+    try {return yield screenshot_link(web, url);}
+    catch (Error err) {
+        try {return yield screenshot_link(web, url);}
+        catch (Error err) {return yield screenshot_link(web, url);}
+    }
+}
+
 /* Find links to screenshot */
 async void screenshot_locale(Output output, File path) throws Error {
     var file = new DataInputStream(yield path.read_async());
@@ -123,7 +133,7 @@ async void screenshot_locale(Output output, File path) throws Error {
         foreach (var link in links) {
             try {
                 output.write(1.0/links.length, link,
-                        yield screenshot_link(renderer, link));
+                        yield try_screenshot_link(renderer, link));
             } catch (Error err) {
                 stderr.printf("Failed to screenshot page: %s\n", err.message);
             }
