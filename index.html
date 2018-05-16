@@ -7,6 +7,9 @@
       font: medium sans-serif;
       text-align: center;
     }
+    ul {display: block;}
+    li {display: inline;}
+    img {height: 128px; width: 128px;}
   </style>
   <script src="zepto.js"></script>
   <script>
@@ -15,6 +18,7 @@
             .filter((tuple) => tuple.length > 1)
         tsv.map((tuple) => tuple.push(Math.random() * tuple[0]))
         tsv.sort((a, b) => a[3] - b[3])
+        tsv = tsv.slice(0, 40)
         $('ul').empty()
         var tuple
         for (tuple of tsv)
