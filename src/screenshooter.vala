@@ -73,25 +73,21 @@ WebKit.WebView construct_renderer() {
 errordomain ScreenshotError {FAILED, LOAD}
 async string screenshot_link(WebKit.WebView web, string url) throws Error {
     var hook = web.load_changed.connect((evt) => {
-        if (evt == WebKit.LoadEvent.FINISHED) screenshot_link.callback();
+        if (evt != WebKit.LoadEvent.FINISHED) return;
+
+        screenshot_link.callback();
     });
-    var errcount = 0;
     var errmsg = "";
     var errhook = web.load_failed.connect((evt, uri, err) => {
-        if (errcount > 3) {
-            errmsg = uri + ":\t" + err.message;
-            screenshot_link.callback();
-        }
-        errcount++;
-
-        web.reload();  
+        errmsg = uri + ":\t" + err.message;
+        screenshot_link.callback();
         return true; 
     });
     web.load_uri(url);
     yield;
     web.disconnect(hook);
     web.disconnect(errhook);
-    if (errcount > 3) throw new ScreenshotError.LOAD(errmsg);
+    if (errmsg != "") throw new ScreenshotError.LOAD(errmsg);
 
     var shot = yield web.get_snapshot(WebKit.SnapshotRegion.VISIBLE,
             WebKit.SnapshotOptions.NONE, null);
