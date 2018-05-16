@@ -87,6 +87,7 @@ async string screenshot_link(WebKit.WebView web, string url) throws Error {
     yield;
     web.disconnect(hook);
     web.disconnect(errhook);
+    web.stop_loading();
     if (errmsg != "") throw new ScreenshotError.LOAD(errmsg);
 
     var shot = yield web.get_snapshot(WebKit.SnapshotRegion.VISIBLE,
