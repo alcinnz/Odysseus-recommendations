@@ -18,43 +18,23 @@
     links both on Odysseus's Recommendations site and
     in Odysseus's topsites display.
 
-    Compile this with valac --pkg webkit2gtk-4.0 --pkg sqlite3 */
+    Compile this with valac --pkg webkit2gtk-4.0 */
 errordomain DBError {CREATE, STATEMENT}
 class Output {
     DataOutputStream file;
-    Sqlite.Database db;
-    Sqlite.Statement qinsert;
     public Output(File root, string lang) throws Error {
         var tsv_dir = root.get_child("tsv");
         if (!tsv_dir.query_exists()) tsv_dir.make_directory();
         var file = root.get_child("tsv").get_child(lang + ".tsv");
         this.file = new DataOutputStream(file.create(
                 FileCreateFlags.REPLACE_DESTINATION | FileCreateFlags.PRIVATE));
-
-        var db_dir = root.get_child("db");
-        if (!db_dir.query_exists()) db_dir.make_directory();
-        var db_file = db_dir.get_child(lang + ".sqlite");
-        var err = Sqlite.Database.open(db_file.get_path(), out db);
-        if (err != Sqlite.OK) throw new DBError.CREATE("%i".printf(err));
-        err = db.exec("""CREATE TABLE IF NOT EXISTS recommendations (uri PRIMARY KEY, screenshot, rank);""");
-        if (err != Sqlite.OK) throw new DBError.STATEMENT(db.errmsg());
-        err = db.exec("""DELETE FROM recommendations;""");
-        if (err != Sqlite.OK) throw new DBError.STATEMENT(db.errmsg());
-
-        err = db.prepare_v2("""INSERT INTO recommendations VALUES (?, ?, ?);""",
-                -1, out qinsert);
-        if (err != Sqlite.OK) throw new DBError.STATEMENT(db.errmsg());
     }
 
     public void write(double Pr, string uri, string screenshot) throws IOError {
         file.put_string("%f\t%s\t%s\n".printf(Pr, uri, screenshot));
+
         stdout.printf(".");
         stdout.flush();
-
-        qinsert.bind_text(1, uri);
-        qinsert.bind_text(2, screenshot);
-        qinsert.bind_double(3, Pr);
-        qinsert.step();
     }
 }
 
