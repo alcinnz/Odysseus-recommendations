@@ -80,8 +80,8 @@ async string screenshot_link(WebKit.WebView web, string url) throws Error {
     pixbuf.scale(pixbuf1, 0, 0, OUT_SIZE, OUT_SIZE,
                 0, 0, OUT_SIZE/512, OUT_SIZE/512,
                 Gdk.InterpType.NEAREST);
-    pixbuf = new Gdk.Pixbuf(Gdk.Colorspace.RGB, true, 8, OUT_SIZE, OUT_SIZE);
-    pixbuf1.saturate_and_pixelate(pixbuf, 0.0f, true);
+    pixbuf = pixbuf1; //new Gdk.Pixbuf(Gdk.Colorspace.RGB, true, 8, OUT_SIZE, OUT_SIZE);
+    //pixbuf1.saturate_and_pixelate(pixbuf, 0.0f, true);
 
     uint8[] png;
     pixbuf.save_to_buffer(out png, "png");
