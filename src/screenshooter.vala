@@ -84,7 +84,7 @@ async string screenshot_link(WebKit.WebView web, string url) throws Error {
     //pixbuf1.saturate_and_pixelate(pixbuf, 0.0f, true);
 
     uint8[] png;
-    pixbuf.save_to_buffer(out png, "png");
+    pixbuf1.save_to_buffer(out png, "png");
     var encoded = Base64.encode(png);
 
     return encoded;
