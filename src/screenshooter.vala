@@ -78,10 +78,10 @@ async string screenshot_link(WebKit.WebView web, string url) throws Error {
     var OUT_SIZE = 128;
     var thumbnail = new Gdk.Pixbuf(Gdk.Colorspace.RGB, true, 8, OUT_SIZE, OUT_SIZE);
     pixbuf.scale(thumbnail, 0, 0, OUT_SIZE, OUT_SIZE,
-                0, 0, OUT_SIZE/512, OUT_SIZE/512, Gdk.InterpType.NEAREST);
+                0, 0, 0.25, 0.25, Gdk.InterpType.NEAREST);
 
     uint8[] png;
-    pixbuf.save_to_buffer(out png, "png");
+    thumbnail.save_to_buffer(out png, "png");
     var encoded = Base64.encode(png);
 
     return encoded;
