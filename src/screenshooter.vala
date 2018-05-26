@@ -73,18 +73,8 @@ async string screenshot_link(WebKit.WebView web, string url) throws Error {
     var shot = yield web.get_snapshot(WebKit.SnapshotRegion.VISIBLE,
             WebKit.SnapshotOptions.NONE, null);
     if (shot == null) throw new ScreenshotError.FAILED("WebView.get_snapshot");
-    var pixbuf = Gdk.pixbuf_get_from_surface(shot, 0, 0, 512, 512);
-
-    var OUT_SIZE = 256;
-    var pixbuf1 = new Gdk.Pixbuf(Gdk.Colorspace.RGB, true, 8, OUT_SIZE, OUT_SIZE);
-    pixbuf.scale(pixbuf1, 0, 0, OUT_SIZE, OUT_SIZE,
-                0, 0, OUT_SIZE/512, OUT_SIZE/512,
-                Gdk.InterpType.NEAREST);
-    pixbuf = pixbuf1; //new Gdk.Pixbuf(Gdk.Colorspace.RGB, true, 8, OUT_SIZE, OUT_SIZE);
-    //pixbuf1.saturate_and_pixelate(pixbuf, 0.0f, true);
-
     uint8[] png;
-    pixbuf1.save_to_buffer(out png, "png");
+    Gdk.pixbuf_get_from_surface(shot, 0, 0, 512, 512).save_to_buffer(out png, "png");
     var encoded = Base64.encode(png);
 
     return encoded;
