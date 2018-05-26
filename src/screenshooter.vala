@@ -73,9 +73,15 @@ async string screenshot_link(WebKit.WebView web, string url) throws Error {
     var shot = yield web.get_snapshot(WebKit.SnapshotRegion.VISIBLE,
             WebKit.SnapshotOptions.NONE, null);
     if (shot == null) throw new ScreenshotError.FAILED("WebView.get_snapshot");
+
     var pixbuf = Gdk.pixbuf_get_from_surface(shot, 0, 0, 512, 512);
+    var OUT_SIZE = 128;
+    var thumbnail = new Gdk.Pixbuf(Gdk.Colorspace.RGB, true, 8, OUT_SIZE, OUT_SIZE);
+    pixbuf.scale(thumbnail, 0, 0, OUT_SIZE, OUT_SIZE,
+                0, 0, OUT_SIZE/512, OUT_SIZE/512, Gdk.InterpType.NEAREST);
+
     uint8[] png;
-    pixbuf.save_to_buffer(out png, "png");
+    thumbnail.save_to_buffer(out png, "png");
     var encoded = Base64.encode(png);
 
     return encoded;
