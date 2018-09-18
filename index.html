@@ -19,7 +19,7 @@
     if ("en".split(" ").indexOf(lang) < 0) lang = "en"
 
     recommendations = []
-    $.get("links/" + lang, (text) => $(() => {
+    $.get("links/" + lang + ".tsv", (text) => $(() => {
         for (var line of text.split("\n")) {
             line = line.trim()
             if (line[0] == "#") continue
