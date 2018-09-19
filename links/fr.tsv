@@ -1,0 +1,12 @@
+# This file contains the links that should populate [Odysseus's newtab page](odysseus:home) if
+# it is not yet fully populated with more personalized sources.
+
+# Any link placed here should be of interest to a broad audience
+# and no link here should incorporate DRM - Odysseus and elementary OS doesn't support that.
+# Thanks to FSF's Defective By Design campaign for getting this list started.
+
+# Lines starting with '#' (like this one) are comments, and otherwise
+# a random link from a random non-blank non-comment line will be choosen for each slot.
+
+# Media
+https://fckdrm.com/
