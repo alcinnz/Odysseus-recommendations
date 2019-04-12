@@ -22,3 +22,6 @@ For clarity to myself and anyone else, I distinguish between these two terms:
 </dt>
 
 This site is for recommendations. 
+
+## Localizations
+This repository lists different recommended links for each language and OS "distribution". And when these are fetched, your the appropriate locale will be downloaded alongside any fallbacks your computer lists.
